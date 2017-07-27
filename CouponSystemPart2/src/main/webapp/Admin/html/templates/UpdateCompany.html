@@ -1,0 +1,36 @@
+
+<h3 style="text-align: center;text-transform: none;">update company:</h3>
+<h6 style="text-align: center;text-transform: none;"> Please note:
+you may only change the password and email of a company</h6>
+
+<p ng-show="update1.success" style="color:green; margin: auto;text-align: center"> 
+success! company updated </p>
+<p ng-show="update1.failure" style="color:red; margin: auto;text-align: center"> 
+error! {{update1.errorMessage}} </p>
+
+<table border=1 style="margin: auto;" >
+<tr>
+<th ng-click="update1.setOrder('id')">Company Id</th>
+<th ng-click="update1.setOrder('compName')">Company Name</th>
+<th ng-click="update1.setOrder('password')">Company Password</th>
+<th ng-click="update1.setOrder('email')">Company Email</th>
+<th>Edit</th>
+
+
+</tr>
+<tr ng-repeat="c in update1.companies | orderBy : update1.order : update1.Ascending">
+    <td>{{c.id}}</td>
+    <td>{{c.compName}}</td>
+    <td><p ng-show="!c.edit">{{c.password}}</p>
+    <input type="text" ng-model="c.password" ng-show="c.edit" required="required"></td>
+    <td><p ng-show="!c.edit">{{c.email}}</p>
+    <input type="text" ng-model="c.email" ng-show="c.edit" required="required"></td>
+    
+    <td><input type="button" value="Edit" ng-click="c.edit = !c.edit" class="w3-button w3-black w3-round-xxlarge w3-hover-blue w3-tiny" ng-show="!c.edit" >
+    <input type="button" value="Save" ng-click="update1.updateCompany(c)" class="w3-button w3-black w3-round-xxlarge w3-hover-blue w3-tiny" ng-show="c.edit" >
+ <input type="button" value="Cancel" ng-click="c.edit = !c.edit" class="w3-button w3-black w3-round-xxlarge w3-hover-blue w3-tiny" ng-show="c.edit" ></td>
+
+    
+</tr>
+
+</table>

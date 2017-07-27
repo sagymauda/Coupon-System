@@ -1,0 +1,48 @@
+
+<h3 style="text-align: center;text-transform: none;"> view all  company coupons</h3>
+<h5 style="text-align: center;text-transform: none;"> you may use the filters to narrow your search</h5>
+<form style="text-align: center;">
+ Category :<select  ng-model="get.type" class="smallSelect">
+		<option>All</option>
+		<option>RESTAURANTS</option>
+		<option>ELECTRICITY</option>
+		<option>FOOD</option>
+		<option>HEALTH</option>
+		<option>SPORTS</option>
+		<option>TRAVELING</option>
+		<option>CAMPING</option>
+		<option>THEATRE</option>
+		</select> 
+<input type="button" value="Search" ng-click="get.getAllByType()" >
+Price : <input type="Number" ng-model="get.price"><input type="button"  value="Search" ng-click="get.getAllByPrice()">
+ Expiration date : <input type="date" ng-model="get.endDate"><input type="button"  value="Search" ng-click="get.getAllByEndDate()">
+<input type="button"  value="Reset" ng-click="get.getAll()">
+</form>
+
+	<table border=1 style="margin: auto;">
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+		<th>Start date</th>
+		<th>End date</th>
+		<th>Amount</th>
+		<th>Price</th>
+		<th>Category</th>
+		<th>message</th>
+		<th>Image</th>
+</tr>
+<tr ng-repeat="c in get.coupons">
+     <td>{{c.coupon_id}}</td>
+    <td>{{c.title}}</td>
+    <td>{{c.start_date|date:format:timezone}}</td>
+    <td>{{c.end_date|date:format:timezone}}</td>
+    <td>{{c.amount}}</td>
+    <td class="dollars">{{c.price}}</td>
+    <td>{{c.type}}</td>
+    <td>{{c.message}}</td>
+    <td>{{c.image}}</td>
+
+    
+</tr>
+
+</table>

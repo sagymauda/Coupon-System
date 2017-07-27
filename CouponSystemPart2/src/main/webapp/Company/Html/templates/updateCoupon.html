@@ -1,0 +1,46 @@
+
+<h3 style="text-align: center;text-transform: none;">update Coupon:</h3>
+<h6 style="text-align: center;text-transform: none;"> Please note:
+you may only change the price and end date of a coupon</h6>
+
+<p ng-show="update.updateSuccess" style="color:green;margin: auto;text-align: center"> 
+success! coupon fields updated </p>
+<p ng-show="update.updateFailure" style="color:red;margin: auto;text-align: center"> 
+Error: <span>{{update.errorMessage}}</span> </p>
+
+<table border=1 style="margin: auto;">
+	<tr>
+		<th ng-click="update.setOrder('coupon_id')">Id</th>
+		<th ng-click="update.setOrder('title')">Title</th>
+		<th  ng-click="update.setOrder('start_date')" >Start date</th>
+		<th ng-click="update.setOrder('end_date')">End date</th>
+		<th ng-click="update.setOrder('amount')">Amount</th>
+		<th ng-click="update.setOrder('price')">Price</th>
+		<th ng-click="update.setOrder('type')">Category</th>
+		<th>Message</th>
+		<th>Image</th>
+		<th>Edit</th>
+</tr>
+<tr ng-repeat="c in update.coupons | orderBy : update.order : update.Ascending">
+    <td>{{c.coupon_id}}</td>
+    <td >{{c.title}}</td>
+    <td>{{c.start_date|date:format:timezone}}</td>
+    <td><p ng-show="!c.editMode">{{c.end_date|date:format:timezone}}</p><input type="date" ng-model="c.end_date" ng-show="c.editMode" required format-date/></td>
+    <td>{{c.amount}}</td>
+    <td class="dollars"><p ng-show="!c.editMode">{{c.price}}</p><input type="number" ng-model="c.price" ng-show="c.editMode" min="1" required/></td>
+    <td>{{c.type}}</td>
+    <td>{{c.message}}</td>
+    <td>{{c.image}}</td>
+
+ <td><input type="button" value="Edit" ng-click="c.editMode=!c.editMode"  class="w3-button w3-black w3-round-xxlarge w3-hover-blue" ng-show="!c.editMode">
+ <input type="button" value="Save" ng-click="update.updateCoupon(c)"  class="w3-button w3-black w3-round-xxlarge w3-hover-blue" ng-show="c.editMode">
+ <input type="button" value="Cancel" ng-click="c.editMode=!c.editMode"   class="w3-button w3-black w3-round-xxlarge w3-hover-blue" ng-show="c.editMode"></td>
+ 
+    
+</tr>
+
+</table>
+
+    
+
+</div>

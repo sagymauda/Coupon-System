@@ -1,0 +1,32 @@
+
+<h3 style="text-align: center;text-transform: none;">Please select the Coupon you would like to remove:</h3>
+
+<table border=1 style="margin: auto;">
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+		<th>Start date</th>
+		<th>End date</th>
+		<th>Amount</th>
+		<th>Price</th>
+		<th>Category</th>
+		<th>message</th>
+		<th>Image</th>
+		<th>Delete</th>
+</tr>
+<tr ng-repeat="c in remove.coupons">
+    <td>{{c.coupon_id}}</td>
+    <td>{{c.title}}</td>
+    <td>{{c.start_date|date:format:timezone}}</td>
+    <td>{{c.end_date|date:format:timezone}}</td>
+    <td>{{c.amount}}</td>
+    <td class="dollars">{{c.price}}</td>
+    <td>{{c.type}}</td>
+    <td>{{c.message}}</td>
+    <td>{{c.image}}</td>
+    <td><input type="button" value="Delete" ng-click="remove.confirm(c)"class="w3-button w3-black w3-round-xxlarge w3-hover-purple" ></td>
+
+    
+</tr>
+
+</table>

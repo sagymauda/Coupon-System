@@ -1,0 +1,36 @@
+<img src="/CouponSystemPart2/Customer/Html/images/coupons.jpg" alt="coupon pic" style=" margin-left:5%" >
+
+
+<p ng-show="purchase.success" style="color:green; text-align: center;">Coupon Purchased!</p>
+<p ng-show="purchase.failure" style="color:red; text-align: center;">{{purchase.errorMessage}}</p>
+<!-- border=1 style="margin-left:2%" -->
+<table style="margin: auto;">
+<!--  w3-table w3-striped w3-border-<tr class="w3-khaki">table  class="w3-table-all w3-card-4 w3-small"-->
+	<tr >
+		<th>Id</th>
+		<th>Title</th>
+		<th>Start date</th>
+		<th>End date</th>
+		<th>Amount</th>
+		<th>Price</th>
+		<th>Category</th>
+		<th>message</th>
+		<th>Image</th>
+		<th>Purchase</th>
+</tr>
+<tr ng-repeat="c in purchase.coupons">
+    <td>{{c.coupon_id}}</td>
+    <td>{{c.title}}</td>
+    <td>{{c.start_date|date:format:timezone}}</td>
+    <td>{{c.end_date|date:format:timezone}}</td>
+    <td>{{c.amount}}</td>
+    <td  class="dollars">{{c.price}}</td>
+    <td>{{c.type}}</td>
+    <td>{{c.message}}</td>
+    <td>{{c.image}}</td>
+    <td><input type="button" value="purchase" ng-click="purchase.confirm(c)" class="w3-button w3-black w3-round-xxlarge w3-hover-blue" ></td>
+
+    
+</tr>
+
+</table>

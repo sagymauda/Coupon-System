@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<h3 style="text-align: center;text-transform: none;">Companies:</h3>
+
+<table border=1 style="margin: auto;">
+<tr>
+<th>Company Id</th>
+<th>Company Name</th>
+<th>Company Password</th>
+<th>Company Email</th>
+</tr>
+<tr ng-repeat="c in allC.companies">
+    <td>{{c.id}}</td>
+    <td>{{c.compName}}</td>
+    <td>{{c.password}}</td>
+    <td>{{c.email}}</td>
+
+    
+</tr>
+
+</table>
+
+</html>

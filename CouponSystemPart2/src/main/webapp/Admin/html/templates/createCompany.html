@@ -1,0 +1,45 @@
+	<p ng-show="create1.failure"style="color:red; margin-left:2%">Error.  {{create1.errorMessage}}</p>
+<p ng-show="create1.success"style="color:green; margin-left:2% ;text-align: center"> Company added successfully :)</p>
+	<table border=1 style="margin-left: 2%; margin-top: 2%;text-align: center" ng-show="create1.success">
+	<tr>
+		<th>Company Id</th>
+		<th>Company Name</th>
+		<th>Company Password</th>
+		<th>Company Email</th>
+</tr>
+<tr ng-repeat="c in create1.companies">
+    <td>{{c.id}}</td>
+    <td>{{c.compName}}</td>
+    <td>{{c.password}}</td>
+    <td>{{c.email}}</td>
+
+    
+</tr>
+
+</table>
+<br/><br/>
+
+<div class="body">	
+<div class="form">
+<div class="top">
+<h3> Create your Company:</h3>
+</div>
+<form >
+
+    <p style="margin-left:2%">Company Name<br/><input type="text"  required value="name" ng-model="create1.newCompany.compName" style="margin-left:1.5%" class="createForm"><br/></p>
+	<p style="margin-left:2%"> Password<br/><input type="text" required value="password" ng-model="create1.newCompany.password" style="margin-left:1.5%"class="createForm"><br/></p>
+	<p style="margin-left:2%">Email<br/><input type="email" required value="email" ng-model="create1.newCompany.email" style="margin-left:1.5%"class="createForm"><br/></p>
+
+	<button type="submit" value="submit" ng-click="create1.createCompany()" class="button">Submit</button>
+</form>
+</div>
+</div>
+	
+
+
+	
+	
+	
+	
+	
+	

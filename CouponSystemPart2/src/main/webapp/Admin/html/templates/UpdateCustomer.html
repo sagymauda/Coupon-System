@@ -1,0 +1,34 @@
+<h3 style="text-align: center;text-transform: none;">update Customer:</h3>
+<h6 style="text-align: center;text-transform: none;"> Please note:
+you may only change the password of a customer</h6>
+
+<p ng-show="update2.success" style="color:green; margin: auto;text-align: center"> 
+success! customer updated 
+
+<p ng-show="update2.failure" style="color:red; margin: auto;text-align: center"> 
+error! {{update2.errorMessage}} </p>
+
+<table border=1 style="margin: auto;" >
+<tr>
+<th ng-click="update2.setOrder('cust_id')">Customer Id</th>
+<th ng-click="update2.setOrder('cust_name')">Customer Name</th>
+<th ng-click="update2.setOrder('password')">Customer Password</th>
+<th>Edit</th>
+
+</tr>
+<tr ng-repeat="c in update2.customers | orderBy : update2.order : update2.Ascending">
+    <td>{{c.cust_id}}</td>
+    <td>{{c.cust_name}}</td>
+    <td><p ng-show=!c.edit>{{c.password}}</p><input type="text" ng-model="c.password" ng-show="c.edit" required="required"></td>
+    
+    <td>
+    <input type="button" value="Edit" ng-click="c.edit=!c.edit" ng-show="!c.edit" class="w3-button w3-black w3-round-xxlarge w3-hover-blue">
+    <input type="button" value="Save" ng-click="update2.updateCustomer(c)" ng-show="c.edit" class="w3-button w3-black w3-round-xxlarge w3-hover-blue">
+    <input type="button" value="Cancel" ng-click="c.edit=!c.edit" ng-show="c.edit" class="w3-button w3-black w3-round-xxlarge w3-hover-blue">
+    </td>
+
+    
+</tr>
+
+</table>
+</div>

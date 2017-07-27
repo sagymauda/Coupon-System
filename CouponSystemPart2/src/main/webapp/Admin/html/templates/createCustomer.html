@@ -1,0 +1,39 @@
+<p ng-show="create2.failure"style="color:red; margin-left:2% ;text-align: center">Error.  {{create2.errorMessage}}</p>
+<table border=1 style="margin-left: 2%; margin-top: 2%" ng-show="create2.success">
+	<tr>
+		<th>Customer Id</th>
+		<th>Customer Name</th>
+		<th>Customer Password</th>
+	
+</tr>
+<tr ng-repeat="c in create2.customers">
+    <td>{{c.cust_id}}</td>
+    <td>{{c.cust_name}}</td>
+    <td>{{c.password}}</td>
+    
+
+    
+</tr>
+
+</table>
+
+<br/><br/>
+
+<div class="body">	
+<div class="form">
+
+<div class="top">
+	<h4> Create your Customer:</h4>
+	</div>
+<form >
+	Name<br/><input type="text"  required value="name" ng-model="create2.newCustomer.cust_name" class="createForm"><br/>
+	Password<br/><input type="text"  required value="password" ng-model="create2.newCustomer.password" class="createForm"><br/>
+
+	<button type="submit" value="submit" ng-click="create2.createCustomer()" class="button">Submit</button>
+	<br/><br/>
+	<p ng-show="create2.success"style="color:green; margin-left:2%"> customer added successfully :)</p>
+</form>
+</div>
+</div>
+
+

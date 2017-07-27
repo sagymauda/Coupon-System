@@ -1,0 +1,6 @@
+package javaBeans;
+
+public enum CouponType {
+	RESTAURANTS, ELECTRICITY, FOOD, HEALTH, SPORTS, TRAVELING, CAMPING, THEATRE, NONE;
+
+}

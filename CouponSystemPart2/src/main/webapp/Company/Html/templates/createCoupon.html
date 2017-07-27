@@ -1,0 +1,64 @@
+
+<p ng-show="create.failure"style="color:red; margin-left:2%">Error. {{create.errorMessage}}</p>
+<p ng-show="create.success"style="color:green; margin-left:2%"> Coupon added successfully :)</p>
+<table border=1 style="margin-left: 2%; margin-top: 2%" ng-show="create.success">
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+		<th>Start date</th>
+		<th>End date</th>
+		<th>Amount</th>
+		<th>Price</th>
+		<th>Category</th>
+		<th>message</th>
+		<th>Image</th>
+</tr>
+<tr ng-repeat="c in create.coupons">
+    <td>{{c.coupon_id}}</td>
+    <td>{{c.title}}</td>
+    <td>{{c.start_date|date:format:timezone}}</td>
+    <td>{{c.end_date|date:format:timezone}}</td>
+    <td>{{c.amount}}</td>
+    <td>{{c.price}}</td>
+    <td>{{c.type}}</td>
+    <td>{{c.message}}</td>
+    <td>{{c.image}}</td>
+
+    
+</tr>
+
+</table>
+<br/><br/>
+
+<div class="body">	
+<div class="form">	
+<div class="top"><h3> Create your coupon:</h3></div>
+<form>
+	Title<br/> <input type="text" ng-model="create.coupon.title" class="createForm" required="required"> <br/>
+	Start date<br/> <input type="date" id="startDate"  ng-model="create.coupon.start_date"  class="createForm" required="required" > <br/>
+	End date<br/> <input type="date"  id="endDate" ng-model="create.coupon.end_date" class="createForm" required="required"> <br/>
+	Amount<br/> <input type="number"  min="1" ng-model="create.coupon.amount"class="createForm" required="required"> <br/>
+	price<br/> <input type="number" min="1" ng-model="create.coupon.price" class="createForm" step="0.1" required="required"> <br/>
+	Category<br/> 
+	
+		<select  ng-model="create.coupon.type" class="createForm" required="required">
+		<option>RESTAURANTS</option>
+		<option>ELECTRICITY</option>
+		<option>FOOD</option>
+		<option>HEALTH</option>
+		<option>SPORTS</option>
+		<option>TRAVELING</option>
+		<option>CAMPING</option>
+		<option>THEATRE</option>
+		</select> 
+	<br/>
+	message<br/><textarea rows="5" cols="15"  ng-model="create.coupon.message" class="createForm" maxlength=30> write any additional information</textarea><br/>
+	image<br/><input type="text"  ng-model="create.coupon.image" class="createForm"> <br/>
+	
+	<button type="submit" ng-click="create.createCoupon()" class="button"> Submit</button><br/>
+</form>
+</div>
+</div>
+
+	<br/><br/>
+

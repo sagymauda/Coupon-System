@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+<!-- <link rel="stylesheet" href="../CSS/formStyle.css">-->
+<link rel="stylesheet" href="/CouponSystemPart2/General/CSS/login.css" >
+<script type="text/javascript" src="/CouponSystemPart2/General/scripts/loginRouter.js"></script>
+<title>login Page</title>
+</head>
+<body onload="checkForCookies()">
+
+	<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+           
+            <div class="wrap">
+                <p class="form-title">
+                    Sign In</p>
+                <form class="login" action="http://localhost:8080/CouponSystemPart2/login" method="post">
+                <select name="clientType" id="clientType">
+			<option value="Admin">Admin</option>
+			<option value="Customer">Customer</option>
+			<option value="Company">Company</option>
+		</select>
+                <input type="text" placeholder="Id" name="id" required id="id"/>
+                <input type="password" placeholder="Password" name="password"  id="password" required/>
+                <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
+                <div class="remember-forgot">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="rememberMe"  value="true" id="rememberMe" />
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!--  <form action="http://localhost:8080/CouponSystemPart2/login" method="post"> 
+		<p>Client type<br/>
+		<select name="clientType" id="clientType">
+			<option value="Admin">Admin</option>
+			<option value="Customer">Customer</option>
+			<option value="Company">Company</option>
+		</select><br/></p>
+		<p>Id number<br/><input type="text" name="id" placeholder="id" required id="id"/><br/></p>
+		<p>Password<br/><input type="password" name="password" placeholder="password"  id="password" required/><br/></p>
+		 <input type="checkbox" name="rememberMe"  value="true" id="rememberMe"/>Remember me <br/>
+		<button type="submit">Login</button>
+	</form>-->
+
+
+
+  
+  
+
+
+</body>
+</html>

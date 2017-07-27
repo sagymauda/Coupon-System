@@ -1,0 +1,21 @@
+<h3 style="text-align: center;text-transform: none;">Please select the company you would like to remove: </h3>
+
+<p ng-show="remove1.removed" style="color:green; margin: auto;text-align: center"> company removed successfully :)</p>
+<p ng-show="remove1.notRemoved" style="color:red; margin: auto;text-align: center">Error. {{remove1.errorMessage}}</p>
+
+<table border=1 style="margin: auto;">
+<tr>
+<th>Company Id</th>
+<th>Company Name</th>
+<th>Company Password</th>
+<th>Company Email</th>
+<th>Remove</th>
+</tr>
+<tr ng-repeat="i in remove1.companies">
+<td>{{i.id}}</td>
+<td>{{i.compName}}</td>
+<td>{{i.password}}</td>
+<td>{{i.email}}</td>
+<td><input type="button" value="Remove" ng-click="remove1.confirmDeletion(i)"  class="w3-button w3-black w3-round-xxlarge w3-small w3-hover-blue"> </td>
+</tr>
+</table>

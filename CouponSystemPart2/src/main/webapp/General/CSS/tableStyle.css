@@ -1,0 +1,41 @@
+table { 
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  width: 1000px;
+  /* Table reset stuff */
+  border-collapse: collapse; border-spacing: 0;
+  border:1px solid black;
+  margin-left: 2%; margin-top: 2%
+}
+	
+	
+	.dollars:before {
+  content: "$";
+}	
+td, th {  border: 0 none; height: 30px;text-align: center;  }
+			
+th {
+  /* Gradient Background */
+	background: linear-gradient(#333 0%,#444 100%);
+	color: #FFF; font-weight: bold;
+	height: 40px;
+	text-align: center; 
+}
+		
+td { background: #FAFAFA; text-align: center; }
+
+/* Zebra Stripe Rows */
+		
+tr:nth-child(even) td { background: #EEE; } 
+tr:nth-child(odd) td { background: #FDFDFD; }
+
+
+
+/* Add border-radius to specific cells! */
+tr:first-child th:nth-child(2) { 
+  border-radius: 5px 0 0 0; 
+} 
+
+tr:first-child th:last-child { 
+  border-radius: 0 5px 0 0; 
+}
